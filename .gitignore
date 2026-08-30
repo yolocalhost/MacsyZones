@@ -1,0 +1,29 @@
+# macOS
+.DS_Store
+
+# Xcode user-specific data
+**/xcuserdata/
+**/*.xcuserstate
+**/*.xcscmblueprint
+*.moved-aside
+*.pbxuser
+*.mode1v3
+*.mode2v3
+*.perspectivev3
+
+# Xcode and Swift build products
+Build/
+build/
+.build/
+DerivedData/
+
+# Local editor and tool files
+.vscode/
+*.code-workspace
+.compile
+buildServer.json
+
+# Temporary and swap files
+*.swp
+*.swo
+*~
