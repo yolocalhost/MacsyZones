@@ -695,24 +695,27 @@ struct Main: View {
             #endif
             
             HStack {
-                Button(action: { updater.checkForUpdates() }) {
+                Button(action: {
+                    if updater.isUpdatable == true {
+                        updater.openLatestRelease()
+                    } else {
+                        updater.checkForUpdates()
+                    }
+                }) {
                     HStack {
                         if updater.isChecking {
                             Image(systemName: "arrow.clockwise.circle")
                             Text("Checking...")
-                        } else if updater.isDownloading {
-                            ProgressView().font(.system(size: 12))
-                            Text("Downloading...")
                         } else if let isUpdatable = updater.isUpdatable, let latestVersion = updater.latestVersion, isUpdatable {
-                            Image(systemName: "arrow.down.circle.fill")
-                            Text("Update to \(latestVersion)")
+                            Image(systemName: "safari")
+                            Text("View v\(latestVersion) Changes")
                         } else {
                             Image(systemName: "arrow.clockwise.circle")
                             Text("Check for Updates")
                         }
                     }
                 }
-                .disabled(updater.isChecking || updater.isDownloading)
+                .disabled(updater.isChecking)
                 
                 Button(action: {
                     showResetToDefaultsDialog = true
