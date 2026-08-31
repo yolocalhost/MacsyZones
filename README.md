@@ -1,4 +1,4 @@
-# MacsyZones — local Pro fork
+# MacsyZones - local Pro fork
 
 MacsyZones is a macOS window-management utility inspired by Windows FancyZones. It lets you create layouts, divide them into zones, and snap windows into those zones.
 
@@ -90,6 +90,14 @@ After installing the application, allow it to control the computer:
 2. Click `+`.
 3. Press `⌘⇧G` and select `/Applications/MacsyZones.app`.
 4. Enable MacsyZones and restart the app.
+
+If MacsyZones is already enabled in Accessibility but still asks for permission, quit the app and run:
+
+```sh
+tccutil reset Accessibility MeowingCat.MacsyZones
+```
+
+Then launch MacsyZones again and enable it in Accessibility if prompted.
 
 The application needs Accessibility access because macOS requires explicit permission for window management and accessibility APIs.
 
